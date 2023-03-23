@@ -56,13 +56,8 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name SYSTEMVERILOG_FILE Counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE BinToBcd.sv
-set_global_assignment -name SYSTEMVERILOG_FILE SegmentDisplay.sv
-set_global_assignment -name SYSTEMVERILOG_FILE SegDriver.sv
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
-set_global_assignment -name SYSTEMVERILOG_FILE Counter_TestBench.sv
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH BinToBcd_TestBench -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME Counter_TestBench -section_id eda_simulation
@@ -73,12 +68,9 @@ set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name VERILOG_CONSTANT_LOOP_LIMIT 10000
-set_global_assignment -name SYSTEMVERILOG_FILE BinToBcd_TestBench.sv
-set_global_assignment -name EDA_TEST_BENCH_FILE Counter_TestBench.sv -section_id Counter_TestBench
 set_global_assignment -name EDA_TEST_BENCH_NAME BinToBcd_TestBench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id BinToBcd_TestBench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME BinToBcd_TestBench -section_id BinToBcd_TestBench
-set_global_assignment -name EDA_TEST_BENCH_FILE BinToBcd_TestBench.sv -section_id BinToBcd_TestBench
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -114,5 +106,13 @@ set_location_assignment PIN_AC24 -to segments[3][4]
 set_location_assignment PIN_AC23 -to segments[3][5]
 set_location_assignment PIN_AC22 -to segments[3][6]
 set_location_assignment PIN_AA18 -to segments[1][0]
+set_global_assignment -name SYSTEMVERILOG_FILE Counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE BinToBcd.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SegmentDisplay.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SegDriver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Counter_TestBench.sv
+set_global_assignment -name SYSTEMVERILOG_FILE BinToBcd_TestBench.sv
 set_global_assignment -name CDF_FILE output_files/7Seg_Counter.cdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE Counter_TestBench.sv -section_id Counter_TestBench
+set_global_assignment -name EDA_TEST_BENCH_FILE BinToBcd_TestBench.sv -section_id BinToBcd_TestBench
