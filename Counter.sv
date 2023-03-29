@@ -11,27 +11,28 @@ module Counter
 
   var logic[WIDTH-1:0] countervalue;
 
-  always @(posedge clock or posedge reset)
+  always @(posedge clock or posedge reset) begin
     if (reset) begin
-	   // Reset the counter to 0
+	    // Reset the counter to 0
       countervalue <= '0;
     end else if (~decrement) begin
-	   // Increment the counter
+	    // Increment the counter
       if (countervalue == 10**DIGITS-1) begin
-		  // Overflow
-		  countervalue <= '0;
-		end else begin
-		  countervalue <= countervalue + 1;
-		end
+		    // Overflow
+		    countervalue <= '0;
+		  end else begin
+		    countervalue <= countervalue + 1;
+		  end
     end else if (decrement) begin
-	   // Decrement the Counter
-		if (countervalue == 0) begin
-		  // Underflow
-		  countervalue <= '{10**DIGITS-1};
-		end else begin
-		  countervalue <= countervalue - 1;
-		end
-	 end
+	    // Decrement the Counter
+		  if (countervalue == 0) begin
+		    // Underflow
+		    countervalue <= '{10**DIGITS-1};
+		  end else begin
+		    countervalue <= countervalue - 1;
+		  end
+	  end
+  end
 
   assign binout = countervalue;
 endmodule
